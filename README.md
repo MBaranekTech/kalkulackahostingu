@@ -3,7 +3,7 @@
 > _"Možná nepotřebujete AWS."_
 
 Hosting price comparison calculator for the Czech market. Compare AWS,
-Hetzner, MasterDC, and Wedos for typical small-business workloads — with
+Hetzner, MasterDC, and Forpsi for typical small-business workloads — with
 hidden costs surfaced up-front, opinionated articles, and a weekly auto-refresh
 of vendor prices.
 
@@ -143,8 +143,10 @@ updates is how comparison sites quietly go stale. Instead:
 - **`scripts/fetch-prices.ts`** pulls live prices each week:
   - AWS — official [Bulk Pricing API](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html)
     for EC2 + RDS in `eu-central-1` (no auth, ~150 MB JSON).
-  - Hetzner — official `api.hetzner.cloud/v1/server_types` (no auth).
-  - MasterDC, Wedos — HTML scrape (label-anchored CZK price regex).
+  - Hetzner — hand-maintained: their Cloud API now requires a project
+    token for every endpoint (incl. `/v1/pricing`), and the public
+    pricing page is JS-rendered. Reviewed quarterly.
+  - MasterDC, Forpsi — HTML scrape (anchor-tag-specific CZK price regex).
   - Exchange rates — ECB daily reference rates XML.
 - The script **validates** the new JSON before writing (positive amounts,
   known currencies, source metadata present) and refuses to write a broken
