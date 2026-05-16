@@ -79,7 +79,7 @@ jobs:
           title: 'chore(prices): weekly refresh'
           body: |
             Automated price refresh from AWS Bulk Pricing API, Hetzner API,
-            MasterDC + Wedos HTML scrape, and ECB FX rates.
+            MasterDC + Forpsi HTML scrape, and ECB FX rates.
 
             **Per-provider errors (if any):**
             ```
