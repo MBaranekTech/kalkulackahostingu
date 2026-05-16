@@ -1,0 +1,476 @@
+{
+  "lastUpdated": "2026-05-12",
+  "exchangeRate": {
+    "USD_CZK": 23.5,
+    "EUR_CZK": 24.8
+  },
+  "providers": [
+    {
+      "id": "aws",
+      "name": "Amazon Web Services",
+      "shortName": "AWS",
+      "region": "eu-central",
+      "logo": null,
+      "url": "https://aws.amazon.com",
+      "packages": [
+        {
+          "id": "aws-t3-nano",
+          "name": "EC2 t3.nano",
+          "vcpu": 2,
+          "ramGB": 0.5,
+          "includedStorageGB": 0,
+          "includedTransferGB": 100,
+          "price": { "amount": 3.94, "currency": "USD" },
+          "source": {
+            "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "aws-t3-micro",
+          "name": "EC2 t3.micro",
+          "vcpu": 2,
+          "ramGB": 1,
+          "includedStorageGB": 0,
+          "includedTransferGB": 100,
+          "price": { "amount": 7.88, "currency": "USD" },
+          "source": {
+            "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "aws-t3-small",
+          "name": "EC2 t3.small",
+          "vcpu": 2,
+          "ramGB": 2,
+          "includedStorageGB": 0,
+          "includedTransferGB": 100,
+          "price": { "amount": 15.77, "currency": "USD" },
+          "source": {
+            "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "aws-t3-medium",
+          "name": "EC2 t3.medium",
+          "vcpu": 2,
+          "ramGB": 4,
+          "includedStorageGB": 0,
+          "includedTransferGB": 100,
+          "price": { "amount": 31.54, "currency": "USD" },
+          "source": {
+            "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "aws-t3-large",
+          "name": "EC2 t3.large",
+          "vcpu": 2,
+          "ramGB": 8,
+          "includedStorageGB": 0,
+          "includedTransferGB": 100,
+          "price": { "amount": 63.07, "currency": "USD" },
+          "source": {
+            "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "aws-t3-xlarge",
+          "name": "EC2 t3.xlarge",
+          "vcpu": 4,
+          "ramGB": 16,
+          "includedStorageGB": 0,
+          "includedTransferGB": 100,
+          "price": { "amount": 126.14, "currency": "USD" },
+          "source": {
+            "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "aws-t3-2xlarge",
+          "name": "EC2 t3.2xlarge",
+          "vcpu": 8,
+          "ramGB": 32,
+          "includedStorageGB": 0,
+          "includedTransferGB": 100,
+          "price": { "amount": 252.29, "currency": "USD" },
+          "source": {
+            "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "aws-m6i-4xlarge",
+          "name": "EC2 m6i.4xlarge",
+          "vcpu": 16,
+          "ramGB": 64,
+          "includedStorageGB": 0,
+          "includedTransferGB": 100,
+          "price": { "amount": 558.04, "currency": "USD" },
+          "source": {
+            "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
+            "fetchedAt": "2026-05-12"
+          }
+        }
+      ],
+      "overage": {
+        "extraStorageGB": { "amount": 0.0916, "currency": "USD" },
+        "extraTransferGB": { "amount": 0.09, "currency": "USD" },
+        "cdnGB": { "amount": 0.085, "currency": "USD" }
+      },
+      "managedDb": {
+        "name": "RDS db.t3.micro (gp3)",
+        "baseFee": { "amount": 13.14, "currency": "USD" },
+        "perGB": { "amount": 0.137, "currency": "USD" },
+        "source": {
+          "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/eu-central-1/index.json",
+          "fetchedAt": "2026-05-12"
+        }
+      },
+      "hiddenCosts": [
+        "NAT Gateway: ~750 Kč/měsíc + 1 Kč za GB",
+        "EBS snapshots: ~1,20 Kč/GB/měsíc",
+        "Data Transfer mezi regiony se účtuje zvlášť",
+        "CloudWatch logy a metriky nad free tier"
+      ],
+      "strengths": [
+        "Globální dostupnost a SLA",
+        "Široká nabídka služeb",
+        "Autoscaling, Lambda, managed databáze"
+      ],
+      "weaknesses": [
+        "Vysoká cena pro malé projekty",
+        "Složitá fakturace a skryté náklady",
+        "Strmá křivka učení"
+      ],
+      "bestFor": ["high-traffic", "api"]
+    },
+    {
+      "id": "hetzner",
+      "name": "Hetzner Cloud",
+      "shortName": "Hetzner",
+      "region": "eu-central",
+      "logo": null,
+      "url": "https://www.hetzner.com/cloud",
+      "packages": [
+        {
+          "id": "hetzner-cx22",
+          "name": "CX22",
+          "vcpu": 2,
+          "ramGB": 4,
+          "includedStorageGB": 40,
+          "includedTransferGB": 20480,
+          "price": { "amount": 4.59, "currency": "EUR" },
+          "source": {
+            "url": "https://api.hetzner.cloud/v1/server_types",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "hetzner-cx32",
+          "name": "CX32",
+          "vcpu": 4,
+          "ramGB": 8,
+          "includedStorageGB": 80,
+          "includedTransferGB": 20480,
+          "price": { "amount": 7.59, "currency": "EUR" },
+          "source": {
+            "url": "https://api.hetzner.cloud/v1/server_types",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "hetzner-cx42",
+          "name": "CX42",
+          "vcpu": 8,
+          "ramGB": 16,
+          "includedStorageGB": 160,
+          "includedTransferGB": 20480,
+          "price": { "amount": 14.69, "currency": "EUR" },
+          "source": {
+            "url": "https://api.hetzner.cloud/v1/server_types",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "hetzner-cx52",
+          "name": "CX52",
+          "vcpu": 16,
+          "ramGB": 32,
+          "includedStorageGB": 320,
+          "includedTransferGB": 20480,
+          "price": { "amount": 27.69, "currency": "EUR" },
+          "source": {
+            "url": "https://api.hetzner.cloud/v1/server_types",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "hetzner-ccx13",
+          "name": "CCX13 (dedicated vCPU)",
+          "vcpu": 2,
+          "ramGB": 8,
+          "includedStorageGB": 80,
+          "includedTransferGB": 20480,
+          "price": { "amount": 13.1, "currency": "EUR" },
+          "source": {
+            "url": "https://api.hetzner.cloud/v1/server_types",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "hetzner-ccx23",
+          "name": "CCX23 (dedicated vCPU)",
+          "vcpu": 4,
+          "ramGB": 16,
+          "includedStorageGB": 160,
+          "includedTransferGB": 20480,
+          "price": { "amount": 25.2, "currency": "EUR" },
+          "source": {
+            "url": "https://api.hetzner.cloud/v1/server_types",
+            "fetchedAt": "2026-05-12"
+          }
+        }
+      ],
+      "overage": {
+        "extraStorageGB": { "amount": 0.044, "currency": "EUR" },
+        "extraTransferGB": { "amount": 0.001, "currency": "EUR" }
+      },
+      "hiddenCosts": [
+        "Floating IPv4: ~30 Kč/měsíc (volitelné)",
+        "Backupy: +20 % k ceně serveru"
+      ],
+      "strengths": [
+        "Nejlepší poměr cena/výkon v Evropě",
+        "20 TB egress zdarma u každého serveru",
+        "Datacentra v EU, GDPR-friendly"
+      ],
+      "weaknesses": [
+        "Bez vlastní CDN (řeší se Cloudflare)",
+        "Méně managed služeb než AWS"
+      ],
+      "bestFor": ["wordpress", "api", "high-traffic"]
+    },
+    {
+      "id": "masterdc",
+      "name": "Master Internet (MasterDC)",
+      "shortName": "MasterDC",
+      "region": "cz",
+      "logo": null,
+      "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
+      "packages": [
+        {
+          "id": "masterdc-vps-start",
+          "name": "VPS Start",
+          "vcpu": 2,
+          "ramGB": 4,
+          "includedStorageGB": 50,
+          "includedTransferGB": 999999,
+          "price": { "amount": 323, "currency": "CZK" },
+          "source": {
+            "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "masterdc-vps-mini",
+          "name": "VPS Mini",
+          "vcpu": 2,
+          "ramGB": 8,
+          "includedStorageGB": 100,
+          "includedTransferGB": 999999,
+          "price": { "amount": 564, "currency": "CZK" },
+          "source": {
+            "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "masterdc-vps-base",
+          "name": "VPS Base",
+          "vcpu": 4,
+          "ramGB": 16,
+          "includedStorageGB": 200,
+          "includedTransferGB": 999999,
+          "price": { "amount": 1149, "currency": "CZK" },
+          "source": {
+            "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "masterdc-vps-pro",
+          "name": "VPS Pro",
+          "vcpu": 8,
+          "ramGB": 32,
+          "includedStorageGB": 400,
+          "includedTransferGB": 999999,
+          "price": { "amount": 2298, "currency": "CZK" },
+          "source": {
+            "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
+            "fetchedAt": "2026-05-12"
+          }
+        }
+      ],
+      "overage": {
+        "extraStorageGB": { "amount": 3, "currency": "CZK" }
+      },
+      "hiddenCosts": [
+        "Některé managed služby a zálohování za příplatek"
+      ],
+      "strengths": [
+        "Datacentra v Praze a Brně (compliance)",
+        "ISO 27001 certifikace",
+        "Česká podpora 24/7"
+      ],
+      "weaknesses": [
+        "Dražší než Hetzner",
+        "Méně globální dostupnost"
+      ],
+      "bestFor": ["wordpress", "api"]
+    },
+    {
+      "id": "wedos",
+      "name": "WEDOS",
+      "shortName": "Wedos",
+      "region": "cz",
+      "logo": null,
+      "url": "https://www.wedos.cz",
+      "packages": [
+        {
+          "id": "wedos-nolimit",
+          "name": "NoLimit hosting",
+          "vcpu": 1,
+          "ramGB": 1,
+          "includedStorageGB": 100,
+          "includedTransferGB": 999999,
+          "price": { "amount": 50, "currency": "CZK" },
+          "source": {
+            "url": "https://hosting.wedos.com/cs/web-hosting.html",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "wedos-cloud-start",
+          "name": "WEDOS Cloud Start",
+          "vcpu": 1,
+          "ramGB": 1,
+          "includedStorageGB": 20,
+          "includedTransferGB": 999,
+          "price": { "amount": 250, "currency": "CZK" },
+          "source": {
+            "url": "https://hosting.wedos.com/cs/cloud-server.html",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "wedos-cloud-pro",
+          "name": "WEDOS Cloud Pro",
+          "vcpu": 2,
+          "ramGB": 4,
+          "includedStorageGB": 80,
+          "includedTransferGB": 999,
+          "price": { "amount": 750, "currency": "CZK" },
+          "source": {
+            "url": "https://hosting.wedos.com/cs/cloud-server.html",
+            "fetchedAt": "2026-05-12"
+          }
+        },
+        {
+          "id": "wedos-cloud-max",
+          "name": "WEDOS Cloud Max",
+          "vcpu": 4,
+          "ramGB": 8,
+          "includedStorageGB": 160,
+          "includedTransferGB": 999,
+          "price": { "amount": 1500, "currency": "CZK" },
+          "source": {
+            "url": "https://hosting.wedos.com/cs/cloud-server.html",
+            "fetchedAt": "2026-05-12"
+          }
+        }
+      ],
+      "overage": {
+        "extraStorageGB": { "amount": 2, "currency": "CZK" },
+        "extraTransferGB": { "amount": 1, "currency": "CZK" }
+      },
+      "hiddenCosts": [
+        "Limity pro NoLimit hosting (CPU minuty, počet inodů)",
+        "Některé funkce vyžadují vyšší tarif"
+      ],
+      "strengths": [
+        "Nejlevnější varianta pro statické weby a WordPress",
+        "Datacentrum v ČR (Hluboká nad Vltavou)",
+        "Česká podpora"
+      ],
+      "weaknesses": [
+        "Limity výkonu na sdíleném hostingu",
+        "Méně flexibility než VPS / cloud"
+      ],
+      "bestFor": ["static", "wordpress"]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "static",
+      "name": "Statický web",
+      "description": "Prezentační web, blog, dokumentace. Bez databáze.",
+      "emoji": "📄",
+      "defaults": {
+        "monthlyVisitors": 10000,
+        "databaseGB": 0,
+        "storageGB": 5,
+        "transferTB": 0.05,
+        "needsCDN": true,
+        "needsDatabase": false
+      }
+    },
+    {
+      "id": "wordpress",
+      "name": "WordPress e-shop",
+      "description": "E-shop do 1 000 produktů, MySQL databáze, obrázky produktů.",
+      "emoji": "🛒",
+      "defaults": {
+        "monthlyVisitors": 30000,
+        "databaseGB": 5,
+        "storageGB": 20,
+        "transferTB": 0.2,
+        "needsCDN": true,
+        "needsDatabase": true
+      }
+    },
+    {
+      "id": "api",
+      "name": "API + databáze",
+      "description": "REST API, mobilní backend, větší databáze.",
+      "emoji": "⚙️",
+      "defaults": {
+        "monthlyVisitors": 100000,
+        "databaseGB": 20,
+        "storageGB": 10,
+        "transferTB": 0.5,
+        "needsCDN": false,
+        "needsDatabase": true
+      }
+    },
+    {
+      "id": "high-traffic",
+      "name": "Vysoká návštěvnost",
+      "description": "Portál, magazín nebo větší e-shop s high traffic.",
+      "emoji": "🚀",
+      "defaults": {
+        "monthlyVisitors": 500000,
+        "databaseGB": 30,
+        "storageGB": 50,
+        "transferTB": 2,
+        "needsCDN": true,
+        "needsDatabase": true
+      }
+    }
+  ]
+}
