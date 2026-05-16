@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-05-12",
+  "lastUpdated": "2026-05-16",
   "exchangeRate": {
-    "USD_CZK": 23.5,
-    "EUR_CZK": 24.8
+    "EUR_CZK": 24.333,
+    "USD_CZK": 20.926
   },
   "providers": [
     {
@@ -20,10 +20,13 @@
           "ramGB": 0.5,
           "includedStorageGB": 0,
           "includedTransferGB": 100,
-          "price": { "amount": 3.94, "currency": "USD" },
+          "price": {
+            "amount": 4.38,
+            "currency": "USD"
+          },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-05-12"
+            "fetchedAt": "2026-05-16"
           }
         },
         {
@@ -33,10 +36,13 @@
           "ramGB": 1,
           "includedStorageGB": 0,
           "includedTransferGB": 100,
-          "price": { "amount": 7.88, "currency": "USD" },
+          "price": {
+            "amount": 8.76,
+            "currency": "USD"
+          },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-05-12"
+            "fetchedAt": "2026-05-16"
           }
         },
         {
@@ -46,10 +52,13 @@
           "ramGB": 2,
           "includedStorageGB": 0,
           "includedTransferGB": 100,
-          "price": { "amount": 15.77, "currency": "USD" },
+          "price": {
+            "amount": 17.52,
+            "currency": "USD"
+          },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-05-12"
+            "fetchedAt": "2026-05-16"
           }
         },
         {
@@ -59,10 +68,13 @@
           "ramGB": 4,
           "includedStorageGB": 0,
           "includedTransferGB": 100,
-          "price": { "amount": 31.54, "currency": "USD" },
+          "price": {
+            "amount": 35.04,
+            "currency": "USD"
+          },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-05-12"
+            "fetchedAt": "2026-05-16"
           }
         },
         {
@@ -72,10 +84,13 @@
           "ramGB": 8,
           "includedStorageGB": 0,
           "includedTransferGB": 100,
-          "price": { "amount": 63.07, "currency": "USD" },
+          "price": {
+            "amount": 70.08,
+            "currency": "USD"
+          },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-05-12"
+            "fetchedAt": "2026-05-16"
           }
         },
         {
@@ -85,10 +100,13 @@
           "ramGB": 16,
           "includedStorageGB": 0,
           "includedTransferGB": 100,
-          "price": { "amount": 126.14, "currency": "USD" },
+          "price": {
+            "amount": 140.16,
+            "currency": "USD"
+          },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-05-12"
+            "fetchedAt": "2026-05-16"
           }
         },
         {
@@ -98,10 +116,13 @@
           "ramGB": 32,
           "includedStorageGB": 0,
           "includedTransferGB": 100,
-          "price": { "amount": 252.29, "currency": "USD" },
+          "price": {
+            "amount": 280.32,
+            "currency": "USD"
+          },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-05-12"
+            "fetchedAt": "2026-05-16"
           }
         },
         {
@@ -111,25 +132,43 @@
           "ramGB": 64,
           "includedStorageGB": 0,
           "includedTransferGB": 100,
-          "price": { "amount": 558.04, "currency": "USD" },
+          "price": {
+            "amount": 671.6,
+            "currency": "USD"
+          },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-05-12"
+            "fetchedAt": "2026-05-16"
           }
         }
       ],
       "overage": {
-        "extraStorageGB": { "amount": 0.0916, "currency": "USD" },
-        "extraTransferGB": { "amount": 0.09, "currency": "USD" },
-        "cdnGB": { "amount": 0.085, "currency": "USD" }
+        "extraStorageGB": {
+          "amount": 0.0916,
+          "currency": "USD"
+        },
+        "extraTransferGB": {
+          "amount": 0.09,
+          "currency": "USD"
+        },
+        "cdnGB": {
+          "amount": 0.085,
+          "currency": "USD"
+        }
       },
       "managedDb": {
         "name": "RDS db.t3.micro (gp3)",
-        "baseFee": { "amount": 13.14, "currency": "USD" },
-        "perGB": { "amount": 0.137, "currency": "USD" },
+        "baseFee": {
+          "amount": 14.6,
+          "currency": "USD"
+        },
+        "perGB": {
+          "amount": 0.137,
+          "currency": "USD"
+        },
         "source": {
           "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/eu-central-1/index.json",
-          "fetchedAt": "2026-05-12"
+          "fetchedAt": "2026-05-16"
         }
       },
       "hiddenCosts": [
@@ -148,7 +187,10 @@
         "Složitá fakturace a skryté náklady",
         "Strmá křivka učení"
       ],
-      "bestFor": ["high-traffic", "api"]
+      "bestFor": [
+        "high-traffic",
+        "api"
+      ]
     },
     {
       "id": "hetzner",
@@ -165,7 +207,10 @@
           "ramGB": 4,
           "includedStorageGB": 40,
           "includedTransferGB": 20480,
-          "price": { "amount": 4.59, "currency": "EUR" },
+          "price": {
+            "amount": 4.59,
+            "currency": "EUR"
+          },
           "source": {
             "url": "https://api.hetzner.cloud/v1/server_types",
             "fetchedAt": "2026-05-12"
@@ -178,7 +223,10 @@
           "ramGB": 8,
           "includedStorageGB": 80,
           "includedTransferGB": 20480,
-          "price": { "amount": 7.59, "currency": "EUR" },
+          "price": {
+            "amount": 7.59,
+            "currency": "EUR"
+          },
           "source": {
             "url": "https://api.hetzner.cloud/v1/server_types",
             "fetchedAt": "2026-05-12"
@@ -191,7 +239,10 @@
           "ramGB": 16,
           "includedStorageGB": 160,
           "includedTransferGB": 20480,
-          "price": { "amount": 14.69, "currency": "EUR" },
+          "price": {
+            "amount": 14.69,
+            "currency": "EUR"
+          },
           "source": {
             "url": "https://api.hetzner.cloud/v1/server_types",
             "fetchedAt": "2026-05-12"
@@ -204,7 +255,10 @@
           "ramGB": 32,
           "includedStorageGB": 320,
           "includedTransferGB": 20480,
-          "price": { "amount": 27.69, "currency": "EUR" },
+          "price": {
+            "amount": 27.69,
+            "currency": "EUR"
+          },
           "source": {
             "url": "https://api.hetzner.cloud/v1/server_types",
             "fetchedAt": "2026-05-12"
@@ -217,7 +271,10 @@
           "ramGB": 8,
           "includedStorageGB": 80,
           "includedTransferGB": 20480,
-          "price": { "amount": 13.1, "currency": "EUR" },
+          "price": {
+            "amount": 13.1,
+            "currency": "EUR"
+          },
           "source": {
             "url": "https://api.hetzner.cloud/v1/server_types",
             "fetchedAt": "2026-05-12"
@@ -230,7 +287,10 @@
           "ramGB": 16,
           "includedStorageGB": 160,
           "includedTransferGB": 20480,
-          "price": { "amount": 25.2, "currency": "EUR" },
+          "price": {
+            "amount": 25.2,
+            "currency": "EUR"
+          },
           "source": {
             "url": "https://api.hetzner.cloud/v1/server_types",
             "fetchedAt": "2026-05-12"
@@ -238,8 +298,14 @@
         }
       ],
       "overage": {
-        "extraStorageGB": { "amount": 0.044, "currency": "EUR" },
-        "extraTransferGB": { "amount": 0.001, "currency": "EUR" }
+        "extraStorageGB": {
+          "amount": 0.044,
+          "currency": "EUR"
+        },
+        "extraTransferGB": {
+          "amount": 0.001,
+          "currency": "EUR"
+        }
       },
       "hiddenCosts": [
         "Floating IPv4: ~30 Kč/měsíc (volitelné)",
@@ -254,7 +320,11 @@
         "Bez vlastní CDN (řeší se Cloudflare)",
         "Méně managed služeb než AWS"
       ],
-      "bestFor": ["wordpress", "api", "high-traffic"]
+      "bestFor": [
+        "wordpress",
+        "api",
+        "high-traffic"
+      ]
     },
     {
       "id": "masterdc",
@@ -271,7 +341,10 @@
           "ramGB": 4,
           "includedStorageGB": 50,
           "includedTransferGB": 999999,
-          "price": { "amount": 323, "currency": "CZK" },
+          "price": {
+            "amount": 323,
+            "currency": "CZK"
+          },
           "source": {
             "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
             "fetchedAt": "2026-05-12"
@@ -284,7 +357,10 @@
           "ramGB": 8,
           "includedStorageGB": 100,
           "includedTransferGB": 999999,
-          "price": { "amount": 564, "currency": "CZK" },
+          "price": {
+            "amount": 564,
+            "currency": "CZK"
+          },
           "source": {
             "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
             "fetchedAt": "2026-05-12"
@@ -297,7 +373,10 @@
           "ramGB": 16,
           "includedStorageGB": 200,
           "includedTransferGB": 999999,
-          "price": { "amount": 1149, "currency": "CZK" },
+          "price": {
+            "amount": 1149,
+            "currency": "CZK"
+          },
           "source": {
             "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
             "fetchedAt": "2026-05-12"
@@ -310,7 +389,10 @@
           "ramGB": 32,
           "includedStorageGB": 400,
           "includedTransferGB": 999999,
-          "price": { "amount": 2298, "currency": "CZK" },
+          "price": {
+            "amount": 2298,
+            "currency": "CZK"
+          },
           "source": {
             "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
             "fetchedAt": "2026-05-12"
@@ -318,7 +400,10 @@
         }
       ],
       "overage": {
-        "extraStorageGB": { "amount": 3, "currency": "CZK" }
+        "extraStorageGB": {
+          "amount": 3,
+          "currency": "CZK"
+        }
       },
       "hiddenCosts": [
         "Některé managed služby a zálohování za příplatek"
@@ -332,7 +417,10 @@
         "Dražší než Hetzner",
         "Méně globální dostupnost"
       ],
-      "bestFor": ["wordpress", "api"]
+      "bestFor": [
+        "wordpress",
+        "api"
+      ]
     },
     {
       "id": "wedos",
@@ -349,7 +437,10 @@
           "ramGB": 1,
           "includedStorageGB": 100,
           "includedTransferGB": 999999,
-          "price": { "amount": 50, "currency": "CZK" },
+          "price": {
+            "amount": 50,
+            "currency": "CZK"
+          },
           "source": {
             "url": "https://hosting.wedos.com/cs/web-hosting.html",
             "fetchedAt": "2026-05-12"
@@ -362,7 +453,10 @@
           "ramGB": 1,
           "includedStorageGB": 20,
           "includedTransferGB": 999,
-          "price": { "amount": 250, "currency": "CZK" },
+          "price": {
+            "amount": 250,
+            "currency": "CZK"
+          },
           "source": {
             "url": "https://hosting.wedos.com/cs/cloud-server.html",
             "fetchedAt": "2026-05-12"
@@ -375,7 +469,10 @@
           "ramGB": 4,
           "includedStorageGB": 80,
           "includedTransferGB": 999,
-          "price": { "amount": 750, "currency": "CZK" },
+          "price": {
+            "amount": 750,
+            "currency": "CZK"
+          },
           "source": {
             "url": "https://hosting.wedos.com/cs/cloud-server.html",
             "fetchedAt": "2026-05-12"
@@ -388,7 +485,10 @@
           "ramGB": 8,
           "includedStorageGB": 160,
           "includedTransferGB": 999,
-          "price": { "amount": 1500, "currency": "CZK" },
+          "price": {
+            "amount": 1500,
+            "currency": "CZK"
+          },
           "source": {
             "url": "https://hosting.wedos.com/cs/cloud-server.html",
             "fetchedAt": "2026-05-12"
@@ -396,8 +496,14 @@
         }
       ],
       "overage": {
-        "extraStorageGB": { "amount": 2, "currency": "CZK" },
-        "extraTransferGB": { "amount": 1, "currency": "CZK" }
+        "extraStorageGB": {
+          "amount": 2,
+          "currency": "CZK"
+        },
+        "extraTransferGB": {
+          "amount": 1,
+          "currency": "CZK"
+        }
       },
       "hiddenCosts": [
         "Limity pro NoLimit hosting (CPU minuty, počet inodů)",
@@ -412,7 +518,10 @@
         "Limity výkonu na sdíleném hostingu",
         "Méně flexibility než VPS / cloud"
       ],
-      "bestFor": ["static", "wordpress"]
+      "bestFor": [
+        "static",
+        "wordpress"
+      ]
     }
   ],
   "scenarios": [
