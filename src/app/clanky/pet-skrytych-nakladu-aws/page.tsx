@@ -40,7 +40,7 @@ export default function Page() {
 
           <p>
             U malého API to dělá <strong>800 — 1 200 Kč navíc měsíčně</strong>.
-            U Hetzneru, MasterDC i Wedosu je tahle funkcionalita součástí
+            U Hetzneru, MasterDC i Forpsi je tahle funkcionalita součástí
             ceny serveru.
           </p>
 

@@ -67,7 +67,7 @@ export default function Page() {
 
           <p>
             MasterDC nabízí podporu v češtině, telefonicky a v režimu 24/7 v
-            ceně služby. Wedos podobně. Hetzner komunikuje v angličtině
+            ceně služby. Forpsi podobně. Hetzner komunikuje v angličtině
             převážně e-mailem, ale s krátkou reakční dobou. Pro klienta
             řešícího výpadek ve 23:00 v neděli je tento rozdíl podstatný.
           </p>

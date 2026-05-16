@@ -11,7 +11,7 @@ export function Footer() {
           </div>
           <p className="text-body-md text-on-surface-variant mt-2 max-w-xs">
             Open-source kalkulačka pro porovnání cen hostingu napříč AWS,
-            Hetzner, MasterDC a Wedos.
+            Hetzner, MasterDC a Forpsi.
           </p>
         </div>
         <div>

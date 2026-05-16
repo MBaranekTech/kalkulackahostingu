@@ -23,7 +23,7 @@ export default function HomePage() {
               </h1>
               <p className="mt-4 text-body-lg text-on-surface-variant max-w-2xl">
                 Spočítejte si měsíční náklady na hosting napříč AWS, Hetzner,
-                MasterDC a Wedos pro typické scénáře malých českých firem.
+                MasterDC a Forpsi pro typické scénáře malých českých firem.
                 Včetně skrytých nákladů, na které ceník nemyslí.
               </p>
             </div>

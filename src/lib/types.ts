@@ -1,6 +1,6 @@
 export type Region = "eu-central" | "eu-west" | "cz";
 
-export type ProviderId = "aws" | "hetzner" | "masterdc" | "wedos";
+export type ProviderId = "aws" | "hetzner" | "masterdc" | "forpsi";
 
 export type ScenarioId = "static" | "wordpress" | "api" | "high-traffic";
 

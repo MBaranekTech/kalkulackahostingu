@@ -332,13 +332,29 @@
       "shortName": "MasterDC",
       "region": "cz",
       "logo": null,
-      "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
+      "url": "https://www.master.cz/virtualni-servery-vps/",
       "packages": [
         {
-          "id": "masterdc-vps-start",
-          "name": "VPS Start",
-          "vcpu": 2,
-          "ramGB": 4,
+          "id": "masterdc-kvm-start",
+          "name": "VPS KVM (od)",
+          "vcpu": 1,
+          "ramGB": 2,
+          "includedStorageGB": 80,
+          "includedTransferGB": 999999,
+          "price": {
+            "amount": 271,
+            "currency": "CZK"
+          },
+          "source": {
+            "url": "https://www.master.cz/virtualni-servery-vps/",
+            "fetchedAt": "2026-05-16"
+          }
+        },
+        {
+          "id": "masterdc-hyperv-start",
+          "name": "VPS Hyper-V (od)",
+          "vcpu": 1,
+          "ramGB": 2,
           "includedStorageGB": 50,
           "includedTransferGB": 999999,
           "price": {
@@ -346,56 +362,8 @@
             "currency": "CZK"
           },
           "source": {
-            "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
-            "fetchedAt": "2026-05-12"
-          }
-        },
-        {
-          "id": "masterdc-vps-mini",
-          "name": "VPS Mini",
-          "vcpu": 2,
-          "ramGB": 8,
-          "includedStorageGB": 100,
-          "includedTransferGB": 999999,
-          "price": {
-            "amount": 564,
-            "currency": "CZK"
-          },
-          "source": {
-            "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
-            "fetchedAt": "2026-05-12"
-          }
-        },
-        {
-          "id": "masterdc-vps-base",
-          "name": "VPS Base",
-          "vcpu": 4,
-          "ramGB": 16,
-          "includedStorageGB": 200,
-          "includedTransferGB": 999999,
-          "price": {
-            "amount": 1149,
-            "currency": "CZK"
-          },
-          "source": {
-            "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
-            "fetchedAt": "2026-05-12"
-          }
-        },
-        {
-          "id": "masterdc-vps-pro",
-          "name": "VPS Pro",
-          "vcpu": 8,
-          "ramGB": 32,
-          "includedStorageGB": 400,
-          "includedTransferGB": 999999,
-          "price": {
-            "amount": 2298,
-            "currency": "CZK"
-          },
-          "source": {
-            "url": "https://www.master.cz/sluzby/serverhosting/virtualni-servery",
-            "fetchedAt": "2026-05-12"
+            "url": "https://www.master.cz/virtualni-servery-vps/",
+            "fetchedAt": "2026-05-16"
           }
         }
       ],
@@ -406,7 +374,8 @@
         }
       },
       "hiddenCosts": [
-        "Některé managed služby a zálohování za příplatek"
+        "Konfigurace přes konfigurátor — finální cena se odvíjí od vCPU / RAM / disku",
+        "Managed služby a zálohování za příplatek"
       ],
       "strengths": [
         "Datacentra v Praze a Brně (compliance)",
@@ -415,7 +384,7 @@
       ],
       "weaknesses": [
         "Dražší než Hetzner",
-        "Méně globální dostupnost"
+        "Bez pevně pojmenovaných tarifů — méně přehledné srovnání"
       ],
       "bestFor": [
         "wordpress",
@@ -423,75 +392,75 @@
       ]
     },
     {
-      "id": "wedos",
-      "name": "WEDOS",
-      "shortName": "Wedos",
+      "id": "forpsi",
+      "name": "FORPSI",
+      "shortName": "Forpsi",
       "region": "cz",
       "logo": null,
-      "url": "https://www.wedos.cz",
+      "url": "https://www.forpsi.com/virtual/",
       "packages": [
         {
-          "id": "wedos-nolimit",
-          "name": "NoLimit hosting",
-          "vcpu": 1,
-          "ramGB": 1,
-          "includedStorageGB": 100,
-          "includedTransferGB": 999999,
-          "price": {
-            "amount": 50,
-            "currency": "CZK"
-          },
-          "source": {
-            "url": "https://hosting.wedos.com/cs/web-hosting.html",
-            "fetchedAt": "2026-05-12"
-          }
-        },
-        {
-          "id": "wedos-cloud-start",
-          "name": "WEDOS Cloud Start",
+          "id": "forpsi-mini-plus",
+          "name": "Mini+",
           "vcpu": 1,
           "ramGB": 1,
           "includedStorageGB": 20,
-          "includedTransferGB": 999,
+          "includedTransferGB": 999999,
           "price": {
-            "amount": 250,
+            "amount": 70,
             "currency": "CZK"
           },
           "source": {
-            "url": "https://hosting.wedos.com/cs/cloud-server.html",
-            "fetchedAt": "2026-05-12"
+            "url": "https://www.forpsi.com/virtual/",
+            "fetchedAt": "2026-05-16"
           }
         },
         {
-          "id": "wedos-cloud-pro",
-          "name": "WEDOS Cloud Pro",
+          "id": "forpsi-basic",
+          "name": "Basic",
           "vcpu": 2,
           "ramGB": 4,
-          "includedStorageGB": 80,
-          "includedTransferGB": 999,
+          "includedStorageGB": 40,
+          "includedTransferGB": 999999,
           "price": {
-            "amount": 750,
+            "amount": 160,
             "currency": "CZK"
           },
           "source": {
-            "url": "https://hosting.wedos.com/cs/cloud-server.html",
-            "fetchedAt": "2026-05-12"
+            "url": "https://www.forpsi.com/virtual/",
+            "fetchedAt": "2026-05-16"
           }
         },
         {
-          "id": "wedos-cloud-max",
-          "name": "WEDOS Cloud Max",
+          "id": "forpsi-standard",
+          "name": "Standard",
           "vcpu": 4,
           "ramGB": 8,
-          "includedStorageGB": 160,
-          "includedTransferGB": 999,
+          "includedStorageGB": 80,
+          "includedTransferGB": 999999,
           "price": {
-            "amount": 1500,
+            "amount": 295,
             "currency": "CZK"
           },
           "source": {
-            "url": "https://hosting.wedos.com/cs/cloud-server.html",
-            "fetchedAt": "2026-05-12"
+            "url": "https://www.forpsi.com/virtual/",
+            "fetchedAt": "2026-05-16"
+          }
+        },
+        {
+          "id": "forpsi-optimal",
+          "name": "Optimal",
+          "vcpu": 8,
+          "ramGB": 16,
+          "includedStorageGB": 160,
+          "includedTransferGB": 999999,
+          "price": {
+            "amount": 500,
+            "currency": "CZK"
+          },
+          "source": {
+            "url": "https://www.forpsi.com/virtual/",
+            "fetchedAt": "2026-05-16"
           }
         }
       ],
@@ -499,28 +468,25 @@
         "extraStorageGB": {
           "amount": 2,
           "currency": "CZK"
-        },
-        "extraTransferGB": {
-          "amount": 1,
-          "currency": "CZK"
         }
       },
       "hiddenCosts": [
-        "Limity pro NoLimit hosting (CPU minuty, počet inodů)",
-        "Některé funkce vyžadují vyšší tarif"
+        "Ceny bez DPH — k částce přičti 21 % DPH",
+        "Backupy a vyšší úroveň podpory za příplatek",
+        "Windows licence nad rámec Linux ceny"
       ],
       "strengths": [
-        "Nejlevnější varianta pro statické weby a WordPress",
-        "Datacentrum v ČR (Hluboká nad Vltavou)",
-        "Česká podpora"
+        "České datacentrum (Praha)",
+        "Široká nabídka tarifů od 70 Kč/měsíc",
+        "Česká podpora a fakturace"
       ],
       "weaknesses": [
-        "Limity výkonu na sdíleném hostingu",
-        "Méně flexibility než VPS / cloud"
+        "Bez managed databáze a serverless služeb",
+        "Vyšší cena za vyšší tier než Hetzner"
       ],
       "bestFor": [
-        "static",
-        "wordpress"
+        "wordpress",
+        "api"
       ]
     }
   ],

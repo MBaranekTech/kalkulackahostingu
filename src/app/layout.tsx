@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | KalkulackaHostingu.cz",
   },
   description:
-    "Spočítejte si, kolik vás bude reálně stát hosting. Porovnání AWS, Hetzner, MasterDC a Wedos pro typické scénáře malých firem. Včetně skrytých nákladů.",
+    "Spočítejte si, kolik vás bude reálně stát hosting. Porovnání AWS, Hetzner, MasterDC a Forpsi pro typické scénáře malých firem. Včetně skrytých nákladů.",
   keywords: [
     "kalkulačka hosting",
     "kalkulačka aws",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title:
       "Kolik vás bude stát hosting? Porovnejte AWS a české alternativy",
     description:
-      "Spočítejte si měsíční náklady na hosting napříč AWS, Hetzner, MasterDC a Wedos — včetně skrytých nákladů.",
+      "Spočítejte si měsíční náklady na hosting napříč AWS, Hetzner, MasterDC a Forpsi — včetně skrytých nákladů.",
     images: ["/og-image.png"],
   },
   twitter: {

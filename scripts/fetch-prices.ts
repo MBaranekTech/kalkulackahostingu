@@ -5,7 +5,7 @@
  *   on-demand Linux prices for the EC2 instance types listed in providers.json.
  *   The pricing JSON is ~150 MB; run with --max-old-space-size=4096.
  * - Hetzner: official cloud API (api.hetzner.cloud/v1/server_types), no auth.
- * - MasterDC / Wedos: HTML scrape using a label-anchored regex. Brittle by
+ * - MasterDC / Forpsi: HTML scrape using a label-anchored regex. Brittle by
  *   nature — failure surfaces in the per-package error list and the workflow
  *   opens an issue rather than a PR.
  * - Exchange rates: ECB daily reference XML.
@@ -163,10 +163,14 @@ async function applyAws(provider: Provider): Promise<FetcherResult> {
           }
         }
 
+        // The regional pricing JSON drops the `productFamily` attribute, so
+        // we anchor on volumeType + engine + deployment instead — those are
+        // present and uniquely identify the GP3 storage SKU for MySQL.
         if (
           storagePrice == null &&
-          a.productFamily === "Database Storage" &&
-          a.volumeType === "General Purpose-GP3"
+          a.volumeType === "General Purpose-GP3" &&
+          a.databaseEngine === "MySQL" &&
+          a.deploymentOption === "Single-AZ"
         ) {
           const term = Object.values(rds.terms.OnDemand[sku] ?? {})[0];
           if (term) {
@@ -294,43 +298,67 @@ function scrapeCzkPriceNearLabel(html: string, label: string): number | null {
 
 async function applyMasterDC(provider: Provider): Promise<FetcherResult> {
   const result = emptyResult("masterdc");
-  const url =
-    "https://www.master.cz/sluzby/serverhosting/virtualni-servery";
+  const url = "https://www.master.cz/virtualni-servery-vps/";
   console.log(`MasterDC: scraping ${url}…`);
   const html = await fetchText(url);
 
+  // MasterDC dropped named tiers; the page now shows only "od X Kč" entry
+  // prices for two platforms (KVM, Hyper-V). The bare strings "KVM" /
+  // "Hyper-V" appear all over the page (meta tags, breadcrumbs, body copy)
+  // — anchor instead on the platform subheading element that sits at the
+  // top of each price card, then strip HTML so the "od ... <strong>N</strong>
+  // ... Kč" split-across-tags pattern collapses to plain text.
+  function odPriceNear(anchor: string): number | null {
+    const idx = html.indexOf(anchor);
+    if (idx < 0) return null;
+    const window = html.slice(idx, idx + 20000).replace(/<[^>]+>/g, " ");
+    const m = window.match(/od\s+([0-9][\d \s.,]*?\d|[0-9])\s*Kč/i);
+    if (!m) return null;
+    const cleaned = m[1]
+      .replace(/[\s ]/g, "")
+      .replace(/\.(?=\d{3}(\D|$))/g, "")
+      .replace(",", ".");
+    const num = parseFloat(cleaned);
+    if (!Number.isFinite(num) || num < 10 || num > 1_000_000) return null;
+    return Math.round(num);
+  }
+
   for (const pkg of provider.packages) {
-    const price = scrapeCzkPriceNearLabel(html, pkg.name);
+    const anchor =
+      pkg.id === "masterdc-kvm-start"
+        ? 'class="subheading">KVM</div>'
+        : 'class="subheading">Hyper-V</div>';
+    const price = odPriceNear(anchor);
     if (price == null) {
-      result.errors.push(`${pkg.id} (${pkg.name}): not found in HTML`);
+      result.errors.push(
+        `${pkg.id} (${pkg.name}): "od X Kč" near platform subheading not found`,
+      );
       continue;
     }
     pkg.price = { amount: price, currency: "CZK" };
     pkg.source = { url, fetchedAt: TODAY };
-    result.updated.push(`${pkg.id} → ${price} Kč/mo`);
+    result.updated.push(`${pkg.id} → od ${price} Kč/mo`);
   }
   return result;
 }
 
-// --- Wedos --------------------------------------------------------------
+// --- Forpsi -------------------------------------------------------------
 
-async function applyWedos(provider: Provider): Promise<FetcherResult> {
-  const result = emptyResult("wedos");
+async function applyForpsi(provider: Provider): Promise<FetcherResult> {
+  const result = emptyResult("forpsi");
+  const url = "https://www.forpsi.com/virtual/";
+  console.log(`Forpsi: scraping ${url}…`);
+  const html = await fetchText(url);
 
-  // Two pages: shared hosting (NoLimit family) and cloud servers.
-  const sharedUrl = "https://hosting.wedos.com/cs/web-hosting.html";
-  const cloudUrl = "https://hosting.wedos.com/cs/cloud-server.html";
-  console.log(`Wedos: scraping ${sharedUrl} + ${cloudUrl}…`);
-  const [sharedHtml, cloudHtml] = await Promise.all([
-    fetchText(sharedUrl),
-    fetchText(cloudUrl),
-  ]);
-
+  // Forpsi tier names like "Basic" and "Standard" appear earlier in the
+  // page's top navigation (shared webhosting links), so a bare-name anchor
+  // grabs the wrong region. Each VPS price card has the tier name in an
+  // `<h3>` heading — that closing tag is a unique anchor. Linux pricing is
+  // listed before Windows in every card, so the first Kč match after the
+  // heading is always the Linux price.
   for (const pkg of provider.packages) {
-    const isShared = pkg.id.startsWith("wedos-nolimit");
-    const html = isShared ? sharedHtml : cloudHtml;
-    const url = isShared ? sharedUrl : cloudUrl;
-    const price = scrapeCzkPriceNearLabel(html, pkg.name);
+    const anchor = `>${pkg.name}</h3>`;
+    const price = scrapeCzkPriceNearLabel(html, anchor);
     if (price == null) {
       result.errors.push(`${pkg.id} (${pkg.name}): not found in HTML`);
       continue;
@@ -440,8 +468,8 @@ async function main() {
         case "masterdc":
           result = await applyMasterDC(provider);
           break;
-        case "wedos":
-          result = await applyWedos(provider);
+        case "forpsi":
+          result = await applyForpsi(provider);
           break;
       }
       if (result.updated.length > 0) anySucceeded = true;
