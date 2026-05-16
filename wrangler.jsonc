@@ -2,6 +2,9 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "kalkulackahostingu",
   "compatibility_date": "2026-05-16",
+  "build": {
+    "command": "npm run build"
+  },
   "assets": {
     "directory": "./out",
     "not_found_handling": "404-page",
