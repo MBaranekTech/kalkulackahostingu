@@ -196,7 +196,7 @@ export default function OMnePage() {
               Aktualizace cen
             </h3>
             <p className="text-body-md text-on-surface-variant">
-              Ceny se každý pondělí ráno automaticky obnovují přes{" "}
+              Ceny se každé pondělí ráno automaticky obnovují přes{" "}
               <a
                 href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html"
                 target="_blank"
@@ -214,9 +214,9 @@ export default function OMnePage() {
               >
                 Hetzner API
               </a>
-              ; pro české poskytovatele se scrape jejich ceníková stránka.
+              ; u českých poskytovatelů se scrapuje jejich ceníková stránka.
               Pokud GitHub Action najde změnu, otevře pull request s diffem
-              cen, který si autor sám zkontroluje a smerguje.
+              cen, který si autor sám zkontroluje a smergne.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 items-center">

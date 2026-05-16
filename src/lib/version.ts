@@ -21,4 +21,4 @@ import { lastUpdated } from "./providers";
 export const APP_VERSION = lastUpdated; // e.g. "2026-05-13"
 export const APP_VERSION_LABEL = `v${lastUpdated.replace(/-/g, ".")}`;
 
-export const GITHUB_URL = "https://github.com/baranekm/kalkulackahostingu";
+export const GITHUB_URL = "https://github.com/MBaranekTech/kalkulackahostingu";
