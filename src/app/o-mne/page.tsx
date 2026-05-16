@@ -196,27 +196,21 @@ export default function OMnePage() {
               Aktualizace cen
             </h3>
             <p className="text-body-md text-on-surface-variant">
-              Ceny se každé pondělí ráno automaticky obnovují přes{" "}
+              Každé pondělí ráno se ceny automaticky obnovují: AWS přes{" "}
               <a
                 href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
               >
-                AWS Bulk Pricing API
-              </a>{" "}
-              a{" "}
-              <a
-                href="https://docs.hetzner.cloud/#server-types"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                Hetzner API
+                Bulk Pricing API
               </a>
-              ; u českých poskytovatelů se scrapuje jejich ceníková stránka.
-              Pokud GitHub Action najde změnu, otevře pull request s diffem
-              cen, který si autor sám zkontroluje a smergne.
+              , čeští poskytovatelé scrapem ceníkové stránky. Ceny Hetzner
+              Cloud aktualizuji ručně (jejich pricing endpoint vyžaduje
+              auth token a samotná pricing stránka je JS-rendered; ceny se
+              u Hetzneru navíc mění zřídka). Pokud GitHub Action najde
+              změnu, otevře pull request s diffem cen, který si autor sám
+              zkontroluje a smergne.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 items-center">

@@ -4,7 +4,9 @@
  * - AWS: Bulk Pricing API (https://pricing.us-east-1.amazonaws.com/...) — exact
  *   on-demand Linux prices for the EC2 instance types listed in providers.json.
  *   The pricing JSON is ~150 MB; run with --max-old-space-size=4096.
- * - Hetzner: official cloud API (api.hetzner.cloud/v1/server_types), no auth.
+ * - Hetzner: hand-maintained (their Cloud API needs auth and the public
+ *   pricing page is JS-rendered). The fetcher just reports a "skipped"
+ *   entry so the workflow doesn't churn issues for it.
  * - MasterDC / Forpsi: HTML scrape using a label-anchored regex. Brittle by
  *   nature — failure surfaces in the per-package error list and the workflow
  *   opens an issue rather than a PR.
@@ -218,56 +220,22 @@ async function applyAws(provider: Provider): Promise<FetcherResult> {
 
 // --- Hetzner Cloud ------------------------------------------------------
 
-interface HetznerServerType {
-  id: number;
-  name: string;
-  cores: number;
-  memory: number;
-  disk: number;
-  prices: Array<{
-    location: string;
-    price_monthly: { gross: string; net: string };
-  }>;
-}
-interface HetznerResponse {
-  server_types: HetznerServerType[];
-}
-
-async function applyHetzner(provider: Provider): Promise<FetcherResult> {
-  const result = emptyResult("hetzner");
-  const url = "https://api.hetzner.cloud/v1/server_types";
-  console.log(`Hetzner: fetching ${url}…`);
-  const data = await fetchJson<HetznerResponse>(url);
-
-  const byName = new Map<string, HetznerServerType>();
-  for (const t of data.server_types) byName.set(t.name.toLowerCase(), t);
-
-  for (const pkg of provider.packages) {
-    // Names like "CCX13 (dedicated vCPU)" or "CX22" → strip suffix.
-    const m = pkg.name.match(/^([A-Za-z0-9]+)/);
-    if (!m) {
-      result.skipped.push(`${pkg.id}: cannot extract server type name`);
-      continue;
-    }
-    const typeName = m[1].toLowerCase();
-    const type = byName.get(typeName);
-    if (!type) {
-      result.errors.push(`${pkg.id} (${m[1]}): not in /v1/server_types`);
-      continue;
-    }
-    // Falkenstein (fsn1) by default; fall back to first listed location.
-    const loc = type.prices.find((p) => p.location === "fsn1") ?? type.prices[0];
-    const net = parseFloat(loc.price_monthly.net);
-    if (!Number.isFinite(net) || net <= 0) {
-      result.errors.push(`${pkg.id}: invalid Hetzner price ${loc.price_monthly.net}`);
-      continue;
-    }
-    pkg.price = { amount: Number(net.toFixed(2)), currency: "EUR" };
-    pkg.source = { url, fetchedAt: TODAY };
-    result.updated.push(`${pkg.id} → €${net.toFixed(2)}/mo`);
-  }
-
-  return result;
+// Hetzner's Cloud API (api.hetzner.cloud) requires a project-scoped token
+// for every endpoint, including /v1/pricing — there is no public read path.
+// The hetzner.com/cloud/pricing page is also a dead end: prices render via
+// a `<ho-price-container>` web component that fetches them client-side, so
+// the static HTML has only placeholders. Rather than wire a Hetzner token
+// into CI, we treat Hetzner prices as hand-maintained in providers.json
+// and just review them quarterly (their list prices change rarely).
+async function applyHetzner(): Promise<FetcherResult> {
+  return {
+    provider: "hetzner",
+    updated: [],
+    skipped: [
+      "hetzner: hand-maintained — Cloud API needs auth, pricing page is JS-rendered",
+    ],
+    errors: [],
+  };
 }
 
 // --- HTML scrape helper -------------------------------------------------
@@ -463,7 +431,7 @@ async function main() {
           result = await applyAws(provider);
           break;
         case "hetzner":
-          result = await applyHetzner(provider);
+          result = await applyHetzner();
           break;
         case "masterdc":
           result = await applyMasterDC(provider);
