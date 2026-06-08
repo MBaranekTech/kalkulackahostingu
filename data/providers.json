@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-01",
+  "lastUpdated": "2026-06-08",
   "exchangeRate": {
-    "EUR_CZK": 24.282,
-    "USD_CZK": 20.854
+    "EUR_CZK": 24.165,
+    "USD_CZK": 20.76
   },
   "providers": [
     {
@@ -26,7 +26,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -42,7 +42,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -58,7 +58,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -74,7 +74,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -90,7 +90,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -106,7 +106,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -122,7 +122,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -138,7 +138,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         }
       ],
@@ -168,7 +168,7 @@
         },
         "source": {
           "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/eu-central-1/index.json",
-          "fetchedAt": "2026-06-01"
+          "fetchedAt": "2026-06-08"
         }
       },
       "hiddenCosts": [
@@ -347,7 +347,7 @@
           },
           "source": {
             "url": "https://www.master.cz/virtualni-servery-vps/",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -363,7 +363,7 @@
           },
           "source": {
             "url": "https://www.master.cz/virtualni-servery-vps/",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         }
       ],
@@ -412,7 +412,7 @@
           },
           "source": {
             "url": "https://www.forpsi.com/virtual/",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -428,7 +428,7 @@
           },
           "source": {
             "url": "https://www.forpsi.com/virtual/",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -444,7 +444,7 @@
           },
           "source": {
             "url": "https://www.forpsi.com/virtual/",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         },
         {
@@ -460,7 +460,7 @@
           },
           "source": {
             "url": "https://www.forpsi.com/virtual/",
-            "fetchedAt": "2026-06-01"
+            "fetchedAt": "2026-06-08"
           }
         }
       ],
