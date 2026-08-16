@@ -14,9 +14,9 @@ export function ArticleCard({ article }: Props) {
       className="group block focus:outline-none"
     >
       <Card
-        variant="elevated"
-        elevation={1}
-        className="p-5 sm:p-6 h-full transition-all duration-200 group-hover:shadow-elev-3 group-focus-visible:shadow-elev-3"
+        variant="filled"
+        elevation={0}
+        className="p-5 sm:p-6 min-h-64 h-full border border-outline-variant/60 bg-surface/75 backdrop-blur-xl transition-colors duration-150 group-hover:border-primary group-hover:bg-primary/10 group-focus-visible:border-primary"
       >
         <div className="flex flex-wrap gap-1.5 mb-3">
           {article.tags.map((t) => (
@@ -25,7 +25,7 @@ export function ArticleCard({ article }: Props) {
             </Chip>
           ))}
         </div>
-        <h3 className="text-title-lg text-on-surface group-hover:text-primary transition-colors">
+        <h3 className="text-title-lg font-semibold text-on-surface">
           {article.title}
         </h3>
         <p className="mt-2 text-body-md text-on-surface-variant line-clamp-3">
@@ -35,7 +35,7 @@ export function ArticleCard({ article }: Props) {
           <span className="font-mono">
             {article.date} · {article.readingMinutes} min
           </span>
-          <span className="text-primary group-hover:translate-x-1 transition-transform">
+          <span className="text-on-surface group-hover:translate-x-1 transition-transform">
             Číst →
           </span>
         </div>

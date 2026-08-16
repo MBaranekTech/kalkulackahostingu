@@ -43,25 +43,23 @@ export function Recommendation({ results, scenarioId }: Props) {
 
   return (
     <Card
-      variant="elevated"
-      elevation={2}
-      className="p-6 bg-success-container/40 border border-success/30"
+      variant="filled"
+      elevation={0}
+      className="p-5 sm:p-6 bg-primary/10 border border-primary/70 border-l-4"
     >
-      <div className="flex items-start gap-3">
-        <div className="text-2xl" aria-hidden>
-          💡
-        </div>
+      <div className="flex items-start gap-4">
+        <div className="grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-primary text-primary text-sm" aria-hidden>✓</div>
         <div className="flex-1">
-          <div className="text-label-lg text-on-success-container/80 uppercase tracking-wider">
-            Naše doporučení
+          <div className="text-label-md text-primary">
+            Doporučení kalkulačky
           </div>
-          <h3 className="mt-1 text-headline-sm text-on-surface">
+          <h3 className="mt-2 text-headline-sm font-semibold text-on-surface">
             {best.provider.name}
-            <span className="text-on-surface-variant text-title-md ml-2">
+            <span className="block sm:inline text-on-surface-variant text-title-md sm:ml-2 font-normal">
               {formatCZK(best.monthlyPriceCZK)} / měsíc
             </span>
           </h3>
-          <p className="mt-2 text-body-lg text-on-surface-variant">
+          <p className="mt-2 text-body-md text-on-surface-variant max-w-xl">
             {reasonFor(best, scenarioId)}
             {!isAlsoCheapest && (
               <>

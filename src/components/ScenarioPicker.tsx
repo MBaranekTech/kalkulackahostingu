@@ -13,7 +13,7 @@ export function ScenarioPicker({ scenarios, selected, onSelect }: Props) {
     <div
       role="radiogroup"
       aria-label="Typ projektu"
-      className="grid grid-cols-2 sm:grid-cols-4 gap-3"
+      className="grid sm:grid-cols-2 gap-3 max-w-3xl mx-auto"
     >
       {scenarios.map((s) => {
         const active = s.id === selected;
@@ -26,26 +26,28 @@ export function ScenarioPicker({ scenarios, selected, onSelect }: Props) {
             onClick={() => onSelect(s.id)}
             className={`
               md-state-layer
-              text-left p-4 rounded-xl
-              transition-all duration-200 ease-out
+              min-h-16 flex items-center gap-3 text-left px-4 py-3 rounded-sm border
+              transition-colors duration-150
               ${
                 active
-                  ? "bg-primary-container text-on-primary-container shadow-elev-1"
-                  : "bg-surface-container text-on-surface hover:bg-surface-high"
+                  ? "border-primary bg-primary/15 text-on-surface"
+                  : "border-outline bg-surface-lowest/10 text-on-surface hover:border-on-surface"
               }
             `}
           >
-            <div className="text-2xl mb-2" aria-hidden>
-              {s.emoji}
-            </div>
-            <div className="text-title-md leading-tight">{s.name}</div>
-            <div
-              className={`mt-1 text-label-md ${
-                active ? "text-on-primary-container/80" : "text-on-surface-variant"
-              }`}
+            <span
+              aria-hidden
+              className={`grid h-5 w-5 shrink-0 place-items-center rounded-full border-2 ${active ? "border-primary" : "border-outline"}`}
             >
-              {s.description}
+              {active && <span className="h-2.5 w-2.5 rounded-full bg-primary" />}
+            </span>
+            <div className="min-w-0 flex-1">
+              <div className="text-title-sm leading-tight">{s.name}</div>
+              <div className="mt-1 text-label-md text-on-surface-variant">
+                {s.description}
+              </div>
             </div>
+            <span aria-hidden className="text-xl">{s.emoji}</span>
           </button>
         );
       })}

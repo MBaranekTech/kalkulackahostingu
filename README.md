@@ -23,8 +23,8 @@ refresh weekly via a GitHub Action.
 
 - **Next.js 16** (App Router, static export → `out/`)
 - **TypeScript** (strict)
-- **Tailwind CSS v4** with hand-rolled **Material 3** design tokens — color
-  roles, elevation, motion easing, full M3 type scale
+- **Tailwind CSS v4** with a custom translucent design system — deep plum
+  surfaces, geometric color fields, monospaced type, and outlined controls
 - **Cloudflare Pages** for hosting; Cloudflare DNS + CDN
 - **`@xyflow/react`** — interactive codebase map on `/o-mne` (route-split,
   doesn't load on the calculator)
@@ -63,9 +63,9 @@ data/
 
 src/
   app/
-    layout.tsx                # SEO meta, Inter + JetBrains Mono, theme init script
+    layout.tsx                # SEO meta, Archivo + JetBrains Mono
     page.tsx                  # home — hero + calculator + articles teaser + CTA
-    globals.css               # M3 design tokens (class-based light/dark)
+    globals.css               # plum translucent tokens and geometric canvas
     icon.svg                  # Next App Router favicon (auto-detected)
     clanky/
       page.tsx                # article index
@@ -75,7 +75,7 @@ src/
 
   components/
     CalculatorApp.tsx         # stateful client component — owns scenario + input
-    ScenarioPicker.tsx        # 4 preset scenarios as M3 chip-cards
+    ScenarioPicker.tsx        # 4 preset scenarios as a ruled selection grid
     InputSliders.tsx          # traffic / DB / storage / transfer + toggles
     ResultsTable.tsx          # sorted list of providers
     ProviderCard.tsx          # per-provider card with breakdown + Vantage link
@@ -85,11 +85,10 @@ src/
     ArticlesTeaser.tsx        # top-3 article cards on home
     ArticleCard.tsx           # single article card (index + teaser)
     ArticleLayout.tsx         # shared article shell — header, prose, footer CTA
-    Header.tsx                # nav + logo + ThemeToggle
+    Header.tsx                # typographic wordmark + navigation
     Footer.tsx                # data freshness + version label
-    ThemeToggle.tsx           # light/dark toggle, useSyncExternalStore
     CodebaseMap.tsx           # React Flow node-link graph on /o-mne
-    ui/                       # Card, Chip, Slider, Switch (M3 primitives)
+    ui/                       # Card, Chip, Slider, Switch primitives
 
   lib/
     types.ts                  # canonical types — read this first
@@ -183,21 +182,15 @@ If you scale past ~5 posts and JSX-in-page editing starts feeling clunky,
 that's the moment to add `@next/mdx` and migrate the bodies — until then,
 plain TSX is the simpler choice.
 
-## Branding & theme
+## Branding & design
 
-- **Logo concept** — a cloud + three descending bars. Reads as **Kč** (the
-  cloud sits where the `č` háček would), as a **price comparison chart**
-  (descending bars = lower price), and as **cloud hosting**.
-  Hard-coded colors in `public/logo*.svg` (for OG / social); the in-app
-  Header uses `hsl(var(--md-primary))` so it follows the active theme.
-- **Light / dark mode** — class-based (`<html class="dark">`). The inline
-  `themeInitScript` in `layout.tsx` runs before first paint to avoid FOUC:
-  reads `localStorage`, falls back to OS preference. The `ThemeToggle`
-  component reflects the current state via `useSyncExternalStore` listening
-  to `<html class>` changes.
-- **Design system** — M3 color roles, elevation 1–5, full M3 type scale, and
-  motion easing tokens in `src/app/globals.css`. No external UI library;
-  every primitive is in `src/components/ui/`.
+- **Wordmark** — a compact two-line typographic mark keeps the product name
+  readable in the narrow header without competing with the calculator.
+- **Single visual theme** — deep plum surfaces, pink geometric fields, bright
+  typography, and outlined form controls keep the calculator focused.
+- **Design system** — custom color, type, shape, elevation, and motion tokens
+  live in `src/app/globals.css`. No external UI library; every primitive is in
+  `src/components/ui/`.
 
 ## Versioning — CalVer
 

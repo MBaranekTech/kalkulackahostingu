@@ -23,14 +23,14 @@ export function Card({
   className = "",
   ...rest
 }: CardProps) {
-  const base = "rounded-xl text-on-surface transition-shadow duration-200";
+  const base = "rounded-md text-on-surface transition-shadow duration-200";
 
   const variantClass =
     variant === "outlined"
-      ? "bg-surface border border-outline-variant"
+      ? "bg-surface/75 border border-outline-variant"
       : variant === "filled"
-        ? "bg-surface-container"
-        : `bg-surface-lowest ${elevationClass[elevation]}`;
+        ? "bg-surface-container/75"
+        : `bg-surface-lowest/75 ${elevationClass[elevation]}`;
 
   return (
     <div className={`${base} ${variantClass} ${className}`} {...rest}>

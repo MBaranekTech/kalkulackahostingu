@@ -12,11 +12,9 @@ export function HiddenCosts({ results }: Props) {
   if (withCosts.length === 0) return null;
 
   return (
-    <Card variant="filled" className="bg-tertiary-container/40 p-5">
+    <Card variant="filled" className="bg-tertiary-container/45 p-5 border border-tertiary/60">
       <div className="flex items-start gap-3">
-        <div className="text-2xl" aria-hidden>
-          ⚠️
-        </div>
+        <div className="font-mono text-xs pt-1" aria-hidden>!</div>
         <div className="flex-1">
           <h3 className="text-title-md text-on-tertiary-container">
             Skryté náklady, na které pozor

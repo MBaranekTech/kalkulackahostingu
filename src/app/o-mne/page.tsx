@@ -3,14 +3,64 @@ import Link from "next/link";
 import { CodebaseMap } from "@/components/CodebaseMap";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
 import { Card } from "@/components/ui/Card";
 import { Chip } from "@/components/ui/Chip";
 import { APP_VERSION_LABEL, GITHUB_URL } from "@/lib/version";
+import {
+  AUTHOR_NAME,
+  AUTHOR_URL,
+  SITE_NAME,
+  SITE_URL,
+  absoluteUrl,
+} from "@/lib/seo";
+
+const description =
+  "Martin Baránek je DevOps inženýr a Linux administrátor. Pomáhá českým firmám s hostingem, cloudovou infrastrukturou, automatizací a optimalizací nákladů.";
 
 export const metadata: Metadata = {
-  title: "O mně",
-  description:
-    "Kdo je Martin Baránek, proč vznikla tato kalkulačka a jak je celý projekt technicky postavený.",
+  title: "Martin Baránek – DevOps, Linux a cloud infrastruktura",
+  description,
+  alternates: { canonical: "/o-mne/" },
+  openGraph: {
+    title: "Martin Baránek – DevOps, Linux a cloud infrastruktura",
+    description,
+    url: absoluteUrl("/o-mne/"),
+    type: "website",
+  },
+};
+
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${absoluteUrl("/o-mne/")}#profile`,
+  url: absoluteUrl("/o-mne/"),
+  name: "O Martinu Baránkovi",
+  description,
+  inLanguage: "cs-CZ",
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+  mainEntity: {
+    "@type": "Person",
+    "@id": `${AUTHOR_URL}/#person`,
+    name: AUTHOR_NAME,
+    url: AUTHOR_URL,
+    email: "mailto:martin.baranek@outlook.com",
+    jobTitle: "DevOps inženýr a Linux administrátor",
+    sameAs: [AUTHOR_URL, GITHUB_URL],
+    knowsAbout: [
+      "DevOps",
+      "Linux",
+      "Cloud infrastructure",
+      "Web hosting",
+      "AWS cost optimization",
+      "Infrastructure automation",
+    ],
+  },
 };
 
 const PICK_PACKAGE = `export function pickPackage(
@@ -42,7 +92,7 @@ const PICK_PACKAGE = `export function pickPackage(
 const STACK = [
   { name: "Next.js 16", note: "App Router · static export" },
   { name: "TypeScript", note: "strict mode" },
-  { name: "Tailwind CSS v4", note: "Material 3 design tokens" },
+  { name: "Tailwind CSS v4", note: "vlastní translucent design tokens" },
   { name: "Cloudflare Pages", note: "hosting + CDN + DDoS" },
   { name: "GitHub Actions", note: "týdenní refresh cen" },
 ];
@@ -50,108 +100,133 @@ const STACK = [
 export default function OMnePage() {
   return (
     <>
+      <JsonLd data={aboutJsonLd} />
       <Header />
       <main className="flex-1">
-        {/* Hero */}
-        <section className="border-b border-outline-variant">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-            <div className="text-label-lg uppercase tracking-wider text-on-surface-variant">
-              O autorovi
+        <section className="px-4 sm:px-6 pt-8 sm:pt-12">
+          <div className="max-w-3xl mx-auto rounded-xl border border-outline-variant/60 bg-surface/78 shadow-elev-2 backdrop-blur-xl px-5 sm:px-10 py-10 sm:py-14 text-center">
+            <div className="text-label-md text-primary">
+              Martin Baránek / DevOps / Linux
             </div>
-            <h1 className="mt-2 text-display-sm sm:text-display-md font-semibold tracking-tight text-on-surface">
-              Proč jsem tu kalkulačku postavil
+            <h1 className="mt-4 text-display-sm sm:text-display-md font-semibold text-on-surface">
+              DevOps, Linux a cloudová infrastruktura
             </h1>
+            <p className="mt-4 text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+              Pomáhám českým firmám provozovat weby a aplikace spolehlivě,
+              bezpečně a bez zbytečných nákladů na cloud.
+            </p>
           </div>
         </section>
 
-        {/* About */}
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-5 text-body-lg text-on-surface-variant leading-relaxed">
-          {/* Positioning lead — Martin's broader value-prop, calculator
-              is just one example of his work. */}
-          <div className="relative pl-6 -mx-2 py-2 border-l-4 border-primary bg-primary-container/30 rounded-r-lg">
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-6 text-body-lg text-on-surface-variant leading-relaxed">
+          <div className="relative p-6 rounded-md border border-primary/70 bg-primary/10">
             <p className="text-title-lg text-on-surface leading-snug">
               <strong>
-                Vytvářím AI-powered systémy, které firmám šetří čas, peníze a
-                nervy.
+                Navrhuji a spravuji infrastrukturu, která odpovídá skutečným
+                potřebám projektu.
               </strong>{" "}
               <span className="text-on-surface-variant">
-                Propojuji AI agenty, cloud infrastrukturu, automatizace a
-                vlastní nástroje (jako tahle kalkulačka hostingu) do jednoho
-                ekosystému — od první analýzy po nasazení a provoz.
+                Od jednoho správně nastaveného VPS přes monitoring a zálohy až
+                po automatizovaný cloudový provoz. Technologie vybírám podle
+                zátěže, rizika a rozpočtu, ne podle loga poskytovatele.
               </span>
             </p>
           </div>
 
+          <h2 className="pt-2 text-headline-sm font-semibold text-on-surface">
+            DevOps a hosting pro malé a střední firmy
+          </h2>
           <p>
             Jsem <strong className="text-on-surface">Martin Baránek</strong> —
-            DevOps inženýr a Linux administrátor. Stavím a provozuji
-            infrastrukturu pro menší české firmy — od jednoho dobře
-            nastaveného VPS po cloud automatizace s AI agenty. Tahle
-            kalkulačka je jen jedna z věcí, které k tomu používám; širší
-            přehled mojí práce najdete na{" "}
+            DevOps inženýr a Linux administrátor. Firmám pomáhám s návrhem
+            hostingu, migracemi serverů, automatizací nasazení, monitoringem,
+            zálohováním a optimalizací nákladů na AWS nebo VPS. Širší přehled
+            mojí práce najdete na{" "}
             <a
               href="https://baranekm.cz"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:underline"
+              className="text-on-surface underline decoration-primary decoration-2 underline-offset-2"
             >
               baranekm.cz
             </a>
             .
           </p>
+
           <p>
-            Kalkulačka vznikla z opakované zkušenosti: klient přijde s AWS
-            účtem za desítky tisíc Kč měsíčně a po hodině přepočtů zjistíme,
-            že stejnou službu by na Hetzneru nebo MasterDC provozoval za
-            zlomek ceny — bez ztráty výkonu nebo dostupnosti.
-          </p>
-          <p>
-            Cílem tohohle nástroje není AWS pohřbít. Cílem je dát malé firmě
-            upřímnou odpověď na otázku{" "}
-            <em className="text-on-surface">„kolik mě to bude stát&ldquo;</em>{" "}
-            předtím, než utratí čas a peníze za něco, co možná vůbec
-            nepotřebuje.
+            Nejčastěji řeším WordPress a e-shopy, interní aplikace, API s
+            databází a firemní systémy, které přerostly původní hosting. Cílem
+            není postavit co nejsložitější architekturu, ale provoz, kterému
+            firma rozumí a který dokáže dlouhodobě financovat.
           </p>
 
-          <Card variant="filled" className="mt-6 p-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <h2 className="pt-2 text-headline-sm font-semibold text-on-surface">
+            Proč vznikla KalkulackaHostingu.cz
+          </h2>
+          <p>
+            Při konzultacích se opakovala stejná situace: firma znala cenu
+            virtuálního serveru, ale v rozpočtu chyběl přenos dat, databáze,
+            snapshoty, monitoring nebo správa. U AWS se z několika malých
+            položek snadno stane faktura, která je výrazně vyšší než původní
+            odhad.
+          </p>
+          <p>
+            Kalkulačka proto porovnává AWS, Hetzner, MasterDC a Forpsi na
+            stejném zadání. Neříká, že jeden poskytovatel je nejlepší pro
+            všechny. Ukazuje, kdy se vyplatí jednoduchý VPS, kdy české
+            datacentrum a kdy pokročilé služby AWS skutečně obhájí svou cenu.
+          </p>
+
+          <h2 className="pt-2 text-headline-sm font-semibold text-on-surface">
+            S čím vám mohu pomoci
+          </h2>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>výběr hostingu a návrh infrastruktury pro nový projekt,</li>
+            <li>kontrola a snížení nákladů na AWS nebo stávající servery,</li>
+            <li>migrace webu, databáze nebo aplikace bez zbytečného výpadku,</li>
+            <li>Linux, Docker, CI/CD, monitoring, zálohy a provozní automatizace.</li>
+          </ul>
+
+          <Card variant="filled" className="mt-6 p-4 border border-outline-variant flex flex-wrap items-center gap-x-6 gap-y-2">
             <a
               href="https://baranekm.cz"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-label-lg text-primary hover:underline inline-flex items-center gap-1"
+              className="text-label-lg text-on-surface underline decoration-primary decoration-2 underline-offset-2 inline-flex items-center gap-1"
             >
               baranekm.cz <span aria-hidden>↗</span>
             </a>
             <a
               href="mailto:martin.baranek@outlook.com"
-              className="text-label-lg text-primary hover:underline"
+              className="text-label-lg text-on-surface underline decoration-primary decoration-2 underline-offset-2"
             >
               martin.baranek@outlook.com
             </a>
             <span className="text-label-md text-on-surface-variant">
-              Konzultace cloud / hosting pro malé české firmy
+              Konzultace hostingu, AWS a Linux infrastruktury
             </span>
           </Card>
         </section>
 
         {/* Under the hood */}
-        <section className="border-t border-outline-variant bg-surface-low">
+        <section className="mt-4">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
+            <div className="rounded-xl border border-outline-variant/60 bg-surface/78 shadow-elev-2 backdrop-blur-xl p-5 sm:p-8">
             <div className="flex items-baseline justify-between gap-4 mb-2 flex-wrap">
               <div>
-                <div className="text-label-lg uppercase tracking-wider text-on-surface-variant">
+                <div className="text-label-md text-primary">
                   Pod kapotou
                 </div>
-                <h2 className="mt-2 text-headline-md text-on-surface tracking-tight">
-                  Jak je projekt postavený
+                <h2 className="mt-2 text-headline-md font-semibold text-on-surface">
+                  Jak funguje kalkulačka hostingu
                 </h2>
               </div>
               <Chip tone="primary">{APP_VERSION_LABEL}</Chip>
             </div>
             <p className="text-body-lg text-on-surface-variant mt-4">
-              Kalkulačka je open-source. Veškerý kód i datový soubor s cenami
-              jsou veřejně dostupné — můžete si ověřit, podle čeho přesně se
-              výsledek počítá.
+              Projekt je open source. Zdrojový kód, ceníky poskytovatelů i
+              výpočet ceny jsou veřejné, takže si můžete ověřit předpoklady,
+              zdroje dat a způsob výběru odpovídajícího serveru.
             </p>
 
             <h3 className="mt-8 mb-3 text-title-lg text-on-surface">
@@ -186,7 +261,7 @@ export default function OMnePage() {
               </code>
               :
             </p>
-            <Card variant="filled" className="p-0 overflow-hidden">
+            <Card variant="filled" className="p-0 overflow-hidden border border-on-surface">
               <pre className="text-label-md font-mono p-4 overflow-x-auto leading-relaxed text-on-surface">
                 <code>{PICK_PACKAGE}</code>
               </pre>
@@ -201,7 +276,7 @@ export default function OMnePage() {
                 href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline"
+                className="text-on-surface underline decoration-primary decoration-2 underline-offset-2"
               >
                 Bulk Pricing API
               </a>
@@ -218,17 +293,18 @@ export default function OMnePage() {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-primary text-on-primary text-label-lg shadow-elev-1 hover:shadow-elev-2 transition-shadow md-state-layer"
+                className="inline-flex items-center gap-2 rounded-sm px-5 py-2.5 bg-on-surface text-background text-label-lg font-semibold border border-on-surface hover:bg-primary hover:border-primary hover:text-on-primary transition-colors md-state-layer"
               >
                 <span aria-hidden>⌥</span> Kód na GitHubu
                 <span aria-hidden>↗</span>
               </a>
               <Link
                 href="/#kalkulacka"
-                className="text-label-lg text-primary hover:underline"
+                className="text-label-lg text-on-surface underline decoration-primary decoration-2 underline-offset-2"
               >
                 ← Zpět na kalkulačku
               </Link>
+            </div>
             </div>
           </div>
         </section>

@@ -28,15 +28,15 @@ export function Slider({
   const display = formatValue ? formatValue(value) : String(value);
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       <div className="flex items-baseline justify-between gap-3">
         <label
           htmlFor={id}
-          className="text-title-sm text-on-surface-variant"
+          className="text-title-sm font-semibold text-on-surface"
         >
           {label}
         </label>
-        <span className="font-mono text-title-md text-on-surface tabular-nums">
+        <span className="text-title-md text-primary tabular-nums">
           {display}
         </span>
       </div>
@@ -76,8 +76,7 @@ export function Slider({
           cursor: pointer;
         }
         .m3-slider::-webkit-slider-runnable-track {
-          height: 4px;
-          border-radius: 999px;
+          height: 2px;
           background: linear-gradient(
             to right,
             var(--color-primary) 0%,
@@ -87,47 +86,38 @@ export function Slider({
           );
         }
         .m3-slider::-moz-range-track {
-          height: 4px;
-          border-radius: 999px;
+          height: 2px;
           background: var(--color-outline-variant);
         }
         .m3-slider::-moz-range-progress {
-          height: 4px;
-          border-radius: 999px;
+          height: 2px;
           background: var(--color-primary);
         }
         .m3-slider::-webkit-slider-thumb {
           -webkit-appearance: none;
           appearance: none;
-          width: 20px;
-          height: 20px;
+          width: 18px;
+          height: 18px;
+          border: 2px solid var(--color-on-surface);
           border-radius: 999px;
           background: var(--color-primary);
           margin-top: -8px;
-          box-shadow:
-            0 0 0 0 hsl(var(--md-primary) / 0.15),
-            0 1px 2px hsl(var(--md-on-surface) / 0.3);
           transition:
-            box-shadow 150ms var(--md-motion-emphasized),
             transform 150ms var(--md-motion-emphasized);
         }
         .m3-slider::-moz-range-thumb {
-          width: 20px;
-          height: 20px;
-          border: none;
+          width: 18px;
+          height: 18px;
+          border: 2px solid var(--color-on-surface);
           border-radius: 999px;
           background: var(--color-primary);
         }
         .m3-slider:hover::-webkit-slider-thumb {
-          box-shadow:
-            0 0 0 10px hsl(var(--md-primary) / 0.1),
-            0 1px 2px hsl(var(--md-on-surface) / 0.3);
+          transform: scale(1.08);
         }
         .m3-slider:focus-visible::-webkit-slider-thumb {
-          outline: none;
-          box-shadow:
-            0 0 0 12px hsl(var(--md-primary) / 0.18),
-            0 1px 2px hsl(var(--md-on-surface) / 0.3);
+          outline: 3px solid hsl(var(--md-primary));
+          outline-offset: 2px;
         }
         .m3-slider:active::-webkit-slider-thumb {
           transform: scale(1.05);

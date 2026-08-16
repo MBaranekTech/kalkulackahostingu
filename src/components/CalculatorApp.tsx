@@ -19,17 +19,13 @@ interface StepLabelProps {
 
 function StepLabel({ step, title, hint }: StepLabelProps) {
   return (
-    <div className="flex items-center gap-3 mb-4">
-      <span
-        aria-hidden
-        className="grid place-items-center w-8 h-8 rounded-full bg-primary text-on-primary text-label-lg tabular-nums shrink-0"
-      >
-        {step}
-      </span>
+    <div className="mb-6 text-center">
       <div>
-        <h2 className="text-title-lg text-on-surface">{title}</h2>
+        <h2 className="text-title-lg sm:text-headline-sm font-semibold text-on-surface">
+          {step}. {title}
+        </h2>
         {hint && (
-          <p className="text-label-md text-on-surface-variant">{hint}</p>
+          <p className="mt-2 text-label-md text-on-surface-variant">{hint}</p>
         )}
       </div>
     </div>
@@ -61,7 +57,7 @@ export function CalculatorApp() {
     : 0;
 
   return (
-    <div id="kalkulacka" className="space-y-10">
+    <div id="kalkulacka" className="space-y-14 scroll-mt-24">
       {/* Step 1: Scenario */}
       <section>
         <StepLabel step={1} title="Vyberte typ projektu" />
@@ -72,28 +68,27 @@ export function CalculatorApp() {
         />
       </section>
 
-      {/* Steps 2 & 3 — sliders on the left, results on the right (desktop) */}
-      <section className="grid lg:grid-cols-5 gap-6">
-        <div className="lg:col-span-2">
+      <section className="space-y-14">
+        <div className="min-w-0 max-w-3xl mx-auto">
           <StepLabel
             step={2}
             title="Upřesněte parametry"
             hint="Slidery můžete kdykoliv upravit — výsledky se přepočítají hned."
           />
-          <Card variant="filled" className="p-5">
+          <Card variant="filled" className="p-5 sm:p-7 border border-outline/70 bg-surface-lowest/20">
             <InputSliders value={input} onChange={setInput} />
           </Card>
         </div>
 
-        <div className="lg:col-span-3 space-y-4">
-          <div className="flex items-center justify-between">
+        <div className="min-w-0 space-y-4">
+          <div>
             <StepLabel step={3} title="Výsledky" />
             {savings > 0 && (
-              <div className="text-right">
+              <div className="-mt-3 mb-6 text-center">
                 <div className="text-label-md text-on-surface-variant">
                   Úspora oproti nejdražšímu
                 </div>
-                <div className="text-title-lg text-success tabular-nums">
+                <div className="mt-1 text-title-lg font-semibold text-primary tabular-nums">
                   {formatCZK(savings)} / měsíc
                 </div>
               </div>

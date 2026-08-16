@@ -62,7 +62,7 @@ function CodeNode({ data }: NodeProps<Node<NodeData>>) {
   const style = GROUP_STYLE[data.group];
   return (
     <div
-      className={`rounded-xl border ${style.card} px-3 py-2 shadow-elev-1 min-w-44 max-w-56`}
+      className={`rounded-sm border ${style.card} px-3 py-2 min-w-44 max-w-56`}
     >
       <Handle
         type="target"
@@ -74,7 +74,7 @@ function CodeNode({ data }: NodeProps<Node<NodeData>>) {
           {data.label}
         </span>
         <span
-          className={`text-[10px] uppercase tracking-wider rounded-full px-2 py-0.5 ${style.chip} font-medium shrink-0`}
+          className={`text-[10px] uppercase rounded-xs px-2 py-0.5 ${style.chip} font-medium shrink-0`}
         >
           {GROUP_LABEL[data.group]}
         </span>
@@ -158,17 +158,7 @@ const NODES: Node<NodeData>[] = [
     position: { x: 320, y: 160 },
     data: {
       label: "Header.tsx",
-      note: "Nav + ThemeToggle",
-      group: "ui",
-    },
-  },
-  {
-    id: "theme-toggle",
-    type: "code",
-    position: { x: 560, y: 160 },
-    data: {
-      label: "ThemeToggle.tsx",
-      note: "Light / dark přepínač",
+      note: "Navigace + kontakt",
       group: "ui",
     },
   },
@@ -331,7 +321,6 @@ const EDGES: Edge[] = [
   { id: "clanky-slug→layout", source: "clanky-slug", target: "article-layout" },
   { id: "o-mne→header", source: "o-mne", target: "header" },
   { id: "o-mne→map", source: "o-mne", target: "codebase-map" },
-  { id: "header→toggle", source: "header", target: "theme-toggle" },
 
   // Calculator composition
   { id: "calc→scenario", source: "calc-app", target: "scenario-picker" },
@@ -369,7 +358,7 @@ export function CodebaseMap() {
   const edges = useMemo(() => EDGES, []);
 
   return (
-    <div className="h-[640px] w-full rounded-xl overflow-hidden border border-outline-variant bg-surface-low">
+    <div className="h-[640px] w-full rounded-sm overflow-hidden border border-on-surface bg-surface-low">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -383,7 +372,7 @@ export function CodebaseMap() {
         nodesDraggable
         nodesConnectable={false}
         elementsSelectable={false}
-        colorMode="system"
+        colorMode="dark"
       >
         <Background
           variant={BackgroundVariant.Dots}
@@ -393,7 +382,7 @@ export function CodebaseMap() {
         />
         <Controls
           showInteractive={false}
-          className="!bg-surface !border !border-outline-variant !rounded-lg !shadow-elev-1"
+          className="!bg-surface !border !border-on-surface !rounded-sm !shadow-none"
         />
       </ReactFlow>
 
@@ -403,7 +392,7 @@ export function CodebaseMap() {
           (g) => (
             <span
               key={g}
-              className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 border ${GROUP_STYLE[g].card}`}
+              className={`inline-flex items-center gap-1.5 rounded-xs px-2.5 py-0.5 border ${GROUP_STYLE[g].card}`}
             >
               <span
                 className={`w-2 h-2 rounded-full ${GROUP_STYLE[g].chip}`}

@@ -1,17 +1,12 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { getArticle } from "@/lib/articles";
+import { createArticleMetadata, getArticle } from "@/lib/articles";
 
 const meta = getArticle("pet-skrytych-nakladu-aws")!;
 
-export const metadata: Metadata = {
-  title: meta.title,
-  description: meta.excerpt,
-  openGraph: { title: meta.title, description: meta.excerpt, type: "article" },
-};
+export const metadata = createArticleMetadata(meta);
 
 export default function Page() {
   return (
@@ -126,7 +121,7 @@ export default function Page() {
           <p>
             Tato kalkulačka byla postavena s cílem zviditelnit i tyto
             položky{" "}
-            <Link href="/#kalkulacka" className="text-primary hover:underline">
+            <Link href="/#kalkulacka" className="text-on-surface underline decoration-primary decoration-2 underline-offset-2">
               ještě před rozhodnutím
             </Link>
             , nikoli až při první faktuře.

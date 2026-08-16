@@ -57,16 +57,16 @@ export function ProviderCard({ result, rank, isCheapest, priceRatio }: Props) {
   return (
     <Card
       variant={isCheapest ? "elevated" : "filled"}
-      elevation={isCheapest ? 2 : 0}
+      elevation={0}
       className={`overflow-hidden ${
         isCheapest
-          ? "ring-2 ring-success/60 ring-offset-2 ring-offset-background"
-          : ""
+          ? "border-2 border-primary bg-primary/10"
+          : "border border-outline-variant bg-surface-lowest/25"
       }`}
     >
       <div className="p-5">
-        <div className="flex items-start justify-between gap-3">
-          <div>
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+          <div className="min-w-0">
             <div className="flex items-center gap-2">
               <span className="text-label-md text-on-surface-variant tabular-nums">
                 #{rank}
@@ -83,10 +83,10 @@ export function ProviderCard({ result, rank, isCheapest, priceRatio }: Props) {
               </div>
             )}
             <div className="mt-2 flex flex-wrap gap-1.5">
-              {isCheapest && <Chip tone="success">🏆 Nejvýhodnější</Chip>}
-              {provider.region === "cz" && <Chip tone="primary">🇨🇿 Data v ČR</Chip>}
+              {isCheapest && <Chip tone="success">Nejvýhodnější</Chip>}
+              {provider.region === "cz" && <Chip tone="primary">Data v ČR</Chip>}
               {insufficientCapacity && (
-                <Chip tone="error">⚠ Provider nemá dost velký balíček</Chip>
+                <Chip tone="error">Provider nemá dost velký balíček</Chip>
               )}
               {!isCheapest && priceRatio >= 3 && (
                 <Chip tone="error">{priceRatio.toFixed(1)}× dražší</Chip>
@@ -96,8 +96,8 @@ export function ProviderCard({ result, rank, isCheapest, priceRatio }: Props) {
               )}
             </div>
           </div>
-          <div className="text-right shrink-0">
-            <div className="text-headline-md font-semibold text-on-surface tabular-nums">
+          <div className="text-left sm:text-right shrink-0">
+            <div className="text-headline-md font-semibold font-mono text-on-surface tabular-nums">
               {formatCZK(monthlyPriceCZK)}
             </div>
             <div className="text-label-md text-on-surface-variant">
@@ -112,7 +112,7 @@ export function ProviderCard({ result, rank, isCheapest, priceRatio }: Props) {
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="mt-4 w-full text-left text-label-lg text-primary flex items-center justify-between md-state-layer rounded-md py-1.5 px-2 -mx-2"
+          className="mt-4 w-full text-left text-label-md text-primary flex items-center justify-between md-state-layer border-t border-outline-variant pt-3"
           aria-expanded={expanded}
         >
           <span>{expanded ? "Skrýt rozpad" : "Zobrazit rozpad"}</span>
@@ -157,7 +157,7 @@ export function ProviderCard({ result, rank, isCheapest, priceRatio }: Props) {
                       href={chosenPackage.source.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:underline break-all"
+                      className="text-on-surface underline decoration-primary decoration-2 underline-offset-2 break-all"
                     >
                       {new URL(chosenPackage.source.url).hostname}
                     </a>
@@ -205,7 +205,7 @@ export function ProviderCard({ result, rank, isCheapest, priceRatio }: Props) {
                 href={provider.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-label-lg text-primary hover:underline"
+                className="inline-flex items-center gap-1 text-label-lg text-on-surface underline decoration-primary decoration-2 underline-offset-2"
               >
                 Web {provider.shortName}
                 <span aria-hidden>↗</span>
@@ -223,7 +223,7 @@ export function ProviderCard({ result, rank, isCheapest, priceRatio }: Props) {
                     href={vantageUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-label-lg text-on-surface-variant hover:text-primary hover:underline"
+                    className="inline-flex items-center gap-1 text-label-lg text-on-surface-variant hover:text-on-surface hover:underline"
                     title="Detailní specifikace na Vantage (benchmarky, RI ceny)"
                   >
                     Detail {chosenPackage.name.replace(/^EC2\s+/, "")} na Vantage

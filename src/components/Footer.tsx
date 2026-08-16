@@ -3,44 +3,49 @@ import { APP_VERSION_LABEL } from "@/lib/version";
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-outline-variant bg-surface-low">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid sm:grid-cols-3 gap-8">
+    <footer className="mt-12 border-t border-outline-variant/60 bg-surface/65 text-on-surface backdrop-blur-xl">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 grid sm:grid-cols-3 gap-8">
         <div>
-          <div className="text-title-md text-on-surface">
-            KalkulackaHostingu<span className="text-primary">.cz</span>
+          <div className="text-title-md font-semibold text-on-surface">
+            KalkulackaHostingu.cz
           </div>
-          <p className="text-body-md text-on-surface-variant mt-2 max-w-xs">
+          <p className="text-body-md text-on-surface-variant mt-3 max-w-xs">
             Open-source kalkulačka pro porovnání cen hostingu napříč AWS,
             Hetzner, MasterDC a Forpsi.
           </p>
         </div>
         <div>
-          <div className="text-label-lg text-on-surface-variant uppercase tracking-wider">
+          <div className="text-label-md text-primary">
             Projekt
           </div>
-          <ul className="mt-2 space-y-1 text-body-md">
+          <ul className="mt-3 space-y-2 text-body-md text-on-surface">
             <li>
-              <a href="#metodologie" className="hover:text-primary">
+              <a href="/#metodologie" className="hover:text-primary">
                 Metodologie výpočtu
               </a>
             </li>
             <li>
-              <a href="#faq" className="hover:text-primary">
-                Časté dotazy
+              <a href="/clanky" className="hover:text-primary">
+                Články
               </a>
             </li>
             <li>
-              <a href="#kontakt" className="hover:text-primary">
-                Kontakt
+              <a href="/o-mne" className="hover:text-primary">
+                O Martinu Baránkovi
+              </a>
+            </li>
+            <li>
+              <a href="/kontakt" className="hover:text-primary">
+                Konzultace a kontakt
               </a>
             </li>
           </ul>
         </div>
         <div>
-          <div className="text-label-lg text-on-surface-variant uppercase tracking-wider">
+          <div className="text-label-md text-primary">
             Data
           </div>
-          <p className="text-body-md text-on-surface-variant mt-2">
+          <p className="text-body-md text-on-surface-variant mt-3">
             Ceny aktualizovány:{" "}
             <span className="text-on-surface font-mono">{lastUpdated}</span>
           </p>
@@ -49,8 +54,8 @@ export function Footer() {
           </p>
         </div>
       </div>
-      <div className="border-t border-outline-variant">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-label-md text-on-surface-variant flex flex-wrap items-center justify-between gap-2">
+      <div className="border-t border-outline-variant/60">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 text-label-md text-on-surface-variant flex flex-wrap items-center justify-between gap-2">
           <span>
             © {new Date().getFullYear()} Martin Baránek · Postaveno
             s Next.js a Cloudflare Pages.

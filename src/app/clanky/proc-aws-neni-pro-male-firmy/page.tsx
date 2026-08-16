@@ -1,16 +1,11 @@
-import type { Metadata } from "next";
 import { ArticleLayout } from "@/components/ArticleLayout";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { getArticle } from "@/lib/articles";
+import { createArticleMetadata, getArticle } from "@/lib/articles";
 
 const meta = getArticle("proc-aws-neni-pro-male-firmy")!;
 
-export const metadata: Metadata = {
-  title: meta.title,
-  description: meta.excerpt,
-  openGraph: { title: meta.title, description: meta.excerpt, type: "article" },
-};
+export const metadata = createArticleMetadata(meta);
 
 export default function Page() {
   return (
