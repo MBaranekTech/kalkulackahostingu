@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-11-16",
+  "lastUpdated": "2026-11-23",
   "exchangeRate": {
-    "EUR_CZK": 24.428,
-    "USD_CZK": 22.179
+    "EUR_CZK": 24.455,
+    "USD_CZK": 22.356
   },
   "providers": [
     {
@@ -26,7 +26,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-11-16"
+            "fetchedAt": "2026-11-23"
           }
         },
         {
@@ -42,7 +42,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-11-16"
+            "fetchedAt": "2026-11-23"
           }
         },
         {
@@ -58,7 +58,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-11-16"
+            "fetchedAt": "2026-11-23"
           }
         },
         {
@@ -74,7 +74,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-11-16"
+            "fetchedAt": "2026-11-23"
           }
         },
         {
@@ -90,7 +90,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-11-16"
+            "fetchedAt": "2026-11-23"
           }
         },
         {
@@ -106,7 +106,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-11-16"
+            "fetchedAt": "2026-11-23"
           }
         },
         {
@@ -122,7 +122,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-11-16"
+            "fetchedAt": "2026-11-23"
           }
         },
         {
@@ -138,7 +138,7 @@
           },
           "source": {
             "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-central-1/index.json",
-            "fetchedAt": "2026-11-16"
+            "fetchedAt": "2026-11-23"
           }
         }
       ],
@@ -168,7 +168,7 @@
         },
         "source": {
           "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/eu-central-1/index.json",
-          "fetchedAt": "2026-11-16"
+          "fetchedAt": "2026-11-23"
         }
       },
       "hiddenCosts": [
